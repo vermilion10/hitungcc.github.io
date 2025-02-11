@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>itunk cc</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Hitung Kapasitas Mesin Motormu!</h1>
+            <label for="diameter">gede seher</label>
+            <input type="text" id="diameter" placeholder="Diameter (mm)">
+            <label for="langkah">panjang langkah</label>
+            <input type="text" id="langkah" placeholder="Langkah (mm)">
+            <button onclick="hitungCC()">Hitung</button>
+            <div id="hasil"></div>
+        </div>
+        <script>
+            function hitungCC(){
+                const diameter = parseFloat(document.getElementById('diameter').value);
+                const langkah = parseFloat(document.getElementById('langkah').value);
+                if (isNaN(diameter) || isNaN(langkah) || diameter <= 0 || langkah <= 0){
+                    document.getElementById('hasil').innerText = "gk bisa diitung osss!";
+                    return;
+                }
+
+                const cc = (0.7854 * diameter * diameter * langkah) / 1000;
+                document.getElementById('hasil').innerText = `Kapasitas mesin motormu itu ${cc.toFixed(2)}cc`;
+            }
+        </script>
+    </body>
+</html>
